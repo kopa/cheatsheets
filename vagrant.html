@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Muli:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class='background'></div>
+  <div class='all'>
+    <h1>
+      Vagrant
+      <a class='back' href='.'>Index</a>
+    </h1>
+    <h3>Get started</h3>
+
+<p>Add some base boxes:</p>
+
+<pre><code>$ vagrant box add precise32 http://files.vagrantup.com/precise32.box
+$ vagrant box add precise64 http://files.vagrantup.com/precise64.box
+</code></pre>
+
+<p>Work it:</p>
+
+<pre><code>$ mkdir test_box
+$ cd test_box
+$ vagrant init precise64
+</code></pre>
+
+<p>Run it:</p>
+
+<pre><code>$ vagrant up
+$ vagrant ssh
+</code></pre>
+
+<p>To stop, use one of the following:</p>
+
+<pre><code>$ vagrant ssh        # then: sudo shutdown -h now
+$ vagrant suspend
+$ vagrant destroy
+</code></pre>
+
+  </div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

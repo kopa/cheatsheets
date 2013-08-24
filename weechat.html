@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Muli:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class='background'></div>
+  <div class='all'>
+    <h1>
+      Weechat
+      <a class='back' href='.'>Index</a>
+    </h1>
+    <h3>Keys</h3>
+
+<p>(<code>A-</code> is alt)</p>
+
+<h3>Buffers</h3>
+
+<pre><code>^s ^u          - Set unread marker on all windows
+
+^p, A-left     - Switch buffer left
+^n, A-right    - Switch buffer right
+A-a            - Next buffer with activity
+A-0...9        - Switch buffers
+
+F9/F10         - Scroll buffer title
+F11/F12        - Scroll nick list
+
+A-w A-Left     - Switch windows
+A-w A-b        - Balance windows
+
+/window splith
+/window splitv
+/window zoom
+</code></pre>
+
+<h3>Search</h3>
+
+<pre><code>^r             - Search
+Enter, ^j, ^m  - Stop search
+</code></pre>
+
+  </div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>

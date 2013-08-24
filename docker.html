@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Muli:400,100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class='background'></div>
+  <div class='all'>
+    <h1>
+      Docker
+      <a class='back' href='.'>Index</a>
+    </h1>
+    <h2>Command line interface</h2>
+
+<p>Quick install on a server:</p>
+
+<pre><code>$ curl get.docker.io | sudo sh -x
+</code></pre>
+
+<p>To pull from docker&#39;s registry:</p>
+
+<pre><code>$ docker pull &quot;ubuntu&quot;
+</code></pre>
+
+<p>To build from your own <code>Dockerfile</code>:</p>
+
+<pre><code>$ docker build -t &quot;app/container_name&quot; .
+</code></pre>
+
+<p>To run:</p>
+
+<pre><code>$ docker run &quot;app/container_name&quot; [command and args]
+  -i -t                # Interactive mode + pseudo-TTY
+  -e ENVVAR=value      # Environment vars
+  -p 4444              # Expose a port (??)
+  -d                   # Detached mode
+
+$ docker run -t &quot;ubuntu&quot; -i bash
+</code></pre>
+
+<h2>OSX Install</h2>
+
+<p>Prerequisites:</p>
+
+<ul>
+<li>Install Virtualbox (<code>brew install virtualbox</code>)</li>
+<li>Install Vagrant (http://vagrantup.com)</li>
+<li>Install go (<code>brew install go</code>)</li>
+</ul>
+
+<p>Then make the Docker executable:</p>
+
+<pre><code>$ git clone https://github.com/dotcloud/docker.git ~/src/docker
+$ cd ~/src/docker
+$ make
+$ mv ./bin/docker /usr/local/bin/docker
+</code></pre>
+
+<p>Then run docker:</p>
+
+<pre><code>$ cd ~/src/docker
+$ vagrant up
+</code></pre>
+
+<h2>Managing</h2>
+
+<p>Manage images:</p>
+
+<pre><code># List images
+$ docker images
+REPOSITORY   TAG        ID
+ubuntu       12.10      b750fe78269d
+me/myapp     latest     7b2431a8d968
+
+# Delete an image
+$ docker rmi b750fe78269d
+</code></pre>
+
+<p>Manage processes:</p>
+
+<pre><code>$ docker ps
+$ docker kill $ID
+$ docker rmi $ID
+</code></pre>
+
+<p>Manage containers:</p>
+
+<h2>Updating containers</h2>
+
+<pre><code>$ docker commit &quot;app/container_name&quot; -m &quot;Change stuff&quot;
+</code></pre>
+
+<h2>More</h2>
+
+<p>Start a worker</p>
+
+<pre><code># Start a very useful long-running process
+JOB=$(docker run -d ubuntu /bin/sh -c &quot;while true; do echo Hello world; sleep 1; 
+    done&quot;)
+
+# Collect the output of the job so far
+docker logs $JOB
+
+# Kill the job
+docker kill $JOB
+</code></pre>
+
+<h2>Resources</h2>
+
+<ul>
+<li>http://www.docker.io/gettingstarted/</li>
+</ul>
+
+  </div>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+  <script src="http://cachedcommons.org/cache/prettify/1.0.0/javascripts/prettify-min.js"></script>
+  <script>$("pre").addClass("prettyprint");</script>
+  <script>prettyPrint();</script>
+</body>
+</html>
